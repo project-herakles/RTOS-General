@@ -1,8 +1,8 @@
 rm_engineer\usart.o: ../Src/usart.c
-rm_engineer\usart.o: ../Inc/usart.h
+rm_engineer\usart.o: ..\Inc\usart.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-rm_engineer\usart.o: ../Inc/stm32f4xx_hal_conf.h
-rm_engineer\usart.o: ../Inc/main.h
+rm_engineer\usart.o: ..\Inc\stm32f4xx_hal_conf.h
+rm_engineer\usart.o: ..\Inc\main.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 rm_engineer\usart.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -29,8 +29,9 @@ rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-rm_engineer\usart.o: ../Inc/gpio.h
-rm_engineer\usart.o: ../Inc/dma.h
+rm_engineer\usart.o: ..\Inc\gpio.h
+rm_engineer\usart.o: ..\Inc\dma.h

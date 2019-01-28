@@ -2,7 +2,7 @@ rm_engineer\freertos.o: ../Src/freertos.c
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-rm_engineer\freertos.o: ../Inc/FreeRTOSConfig.h
+rm_engineer\freertos.o: ..\Inc\FreeRTOSConfig.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
@@ -10,7 +10,7 @@ rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
-rm_engineer\freertos.o: ../Inc/main.h
+rm_engineer\freertos.o: ..\Inc\main.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
@@ -18,7 +18,7 @@ rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semph
 rm_engineer\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 rm_engineer\freertos.o: ../Tasks/chassisTask.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-rm_engineer\freertos.o: ../Inc/stm32f4xx_hal_conf.h
+rm_engineer\freertos.o: ..\Inc\stm32f4xx_hal_conf.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 rm_engineer\freertos.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -44,7 +44,15 @@ rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rm_engineer\freertos.o: ../Tasks/canTask.h
+rm_engineer\freertos.o: ..\MDK-ARM\imu_task.h
+rm_engineer\freertos.o: ..\MDK-ARM\bsp_imu.h
+rm_engineer\freertos.o: ..\MDK-ARM\mytype.h
+rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+rm_engineer\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

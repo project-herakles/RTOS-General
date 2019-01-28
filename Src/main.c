@@ -54,10 +54,11 @@
 #include "dma.h"
 #include "usart.h"
 #include "gpio.h"
-
+#include "imu_task.h"
 /* USER CODE BEGIN Includes */
 #include "bsp_can.h"
 #include "bsp_uart.h"
+#include "bsp_imu.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -117,7 +118,8 @@ int main(void)
 	CAN_Initialize();
 	dbus_uart_init();
   /* USER CODE END 2 */
-
+	imu_init();
+	
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 

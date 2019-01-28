@@ -1,7 +1,7 @@
 rm_engineer\stm32f4xx_it.o: ../Src/stm32f4xx_it.c
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-rm_engineer\stm32f4xx_it.o: ../Inc/stm32f4xx_hal_conf.h
-rm_engineer\stm32f4xx_it.o: ../Inc/main.h
+rm_engineer\stm32f4xx_it.o: ..\Inc\stm32f4xx_hal_conf.h
+rm_engineer\stm32f4xx_it.o: ..\Inc\main.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -28,14 +28,15 @@ rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fl
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\stm32f4xx_it.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-rm_engineer\stm32f4xx_it.o: ../Inc/stm32f4xx_it.h
+rm_engineer\stm32f4xx_it.o: ..\Inc\stm32f4xx_it.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rm_engineer\stm32f4xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-rm_engineer\stm32f4xx_it.o: ../Inc/FreeRTOSConfig.h
+rm_engineer\stm32f4xx_it.o: ..\Inc\FreeRTOSConfig.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
@@ -48,5 +49,5 @@ rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/q
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 rm_engineer\stm32f4xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 rm_engineer\stm32f4xx_it.o: ../BSP/bsp_uart.h
-rm_engineer\stm32f4xx_it.o: ../Inc/usart.h
+rm_engineer\stm32f4xx_it.o: ..\Inc\usart.h
 rm_engineer\stm32f4xx_it.o: ../BSP/keyboard_def.h
