@@ -3,9 +3,9 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.26.2.0
+IDE-Version: ¦ÌVision V5.26.2.0
 Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Aslan Chui, U, LIC=NQQEV-PIEG1-CWJ2K-ZLQ97-PU1XR-CP4XM
+License Information: Yunhao Liu, HKU-RoboMaster, LIC=UJWMM-X9JAI-9T03L-0B01G-RP71Y-KMZV0
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.26.2.0
@@ -21,21 +21,27 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-C:\Users\impec\Documents\STM32\RM_Engineer\MDK-ARM\RM_Engineer.uvprojx
-Project File Date:  01/17/2019
+D:\Git-Remote control\RTOS\General-Control\MDK-ARM\RM_Engineer.uvprojx
+Project File Date:  01/29/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'RM_Engineer'
-compiling bsp_uart.c...
-compiling main.c...
-compiling stm32f4xx_it.c...
-compiling freertos.c...
-compiling chassisTask.c...
+compiling usbd_cdc_if.c...
+..\Src\usbd_cdc_if.c(426): warning:  #223-D: function "HAL_UART_Receive_IT_IDLE" declared implicitly
+  	HAL_UART_Receive_IT_IDLE(&huart6,UART_RxBuffer,2048);
+..\Src\usbd_cdc_if.c: 1 warning, 0 errors
+compiling usbd_cdc.c...
+compiling usbd_desc.c...
+compiling usbd_core.c...
+compiling usb_device.c...
+compiling usbd_ctlreq.c...
+compiling usbd_conf.c...
+compiling usbd_ioreq.c...
 linking...
-Program Size: Code=15164 RO-data=584 RW-data=432 ZI-data=17416  
+Program Size: Code=21128 RO-data=584 RW-data=436 ZI-data=19164  
 FromELF: creating hex file...
-"RM_Engineer\RM_Engineer.axf" - 0 Error(s), 0 Warning(s).
+"RM_Engineer\RM_Engineer.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -58,7 +64,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.1.2
-Build Time Elapsed:  00:00:08
+Build Time Elapsed:  00:00:15
 </pre>
 </body>
 </html>
