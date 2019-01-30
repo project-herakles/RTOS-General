@@ -52,6 +52,11 @@ rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_gro
 rm_engineer\main.o: ../Inc/can.h
 rm_engineer\main.o: ../Inc/dma.h
 rm_engineer\main.o: ../Inc/usart.h
+rm_engineer\main.o: ../Inc/usb_device.h
+rm_engineer\main.o: ../Inc/usbd_def.h
+rm_engineer\main.o: ../Inc/usbd_conf.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rm_engineer\main.o: ../Inc/gpio.h
 rm_engineer\main.o: ../BSP/bsp_can.h
 rm_engineer\main.o: ../BSP/bsp_uart.h

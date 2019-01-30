@@ -53,6 +53,7 @@
 #include "can.h"
 #include "dma.h"
 #include "usart.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
@@ -112,6 +113,7 @@ int main(void)
   MX_DMA_Init();
   MX_CAN1_Init();
   MX_USART1_UART_Init();
+	MX_USB_DEVICE_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
 	CAN_Initialize();
