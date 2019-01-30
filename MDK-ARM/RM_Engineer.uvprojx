@@ -516,6 +516,16 @@
               <FileType>5</FileType>
               <FilePath>.\spi.h</FilePath>
             </File>
+            <File>
+              <FileName>gun.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\gun.c</FilePath>
+            </File>
+            <File>
+              <FileName>gun.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\gun.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

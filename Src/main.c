@@ -59,6 +59,7 @@
 #include "bsp_can.h"
 #include "bsp_uart.h"
 #include "bsp_imu.h"
+#include "gun.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -119,7 +120,9 @@ int main(void)
 	dbus_uart_init();
   /* USER CODE END 2 */
 	imu_init();
-	
+	MX_TIM4_Init();
+	gun_init();
+	SetFrictionWheelSpeed(2000);
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 

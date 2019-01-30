@@ -61,3 +61,4 @@ rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rm_engineer\main.o: ../BSP/bsp_can.h
 rm_engineer\main.o: ../BSP/bsp_uart.h
 rm_engineer\main.o: ../BSP/keyboard_def.h
+rm_engineer\main.o: ..\Inc\gun.h

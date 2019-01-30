@@ -10,6 +10,7 @@
 "rm_engineer\stm32f4xx_hal_msp.o"
 "rm_engineer\stm32f4xx_hal_timebase_tim.o"
 "rm_engineer\spi.o"
+"rm_engineer\gun.o"
 "rm_engineer\stm32f4xx_hal_can.o"
 "rm_engineer\stm32f4xx_hal_tim.o"
 "rm_engineer\stm32f4xx_hal_tim_ex.o"
