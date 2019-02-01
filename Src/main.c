@@ -65,7 +65,15 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
+uint8_t KeyStatus;
 
+//for the data transmation
+#define APP_RX_DATA_SIZE  2048
+#define APP_TX_DATA_SIZE  2048
+extern uint8_t UserRxBufferFS[APP_RX_DATA_SIZE]; // receiving
+extern uint8_t UserTxBufferFS[APP_TX_DATA_SIZE]; // sending
+
+extern uint8_t UART_RxBuffer[2048];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -118,6 +126,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	CAN_Initialize();
 	dbus_uart_init();
+  /* Start UART Receive With IDLE Interrupt */ 
+  HAL_UART_Receive_IT_IDLE(&huart6,UART_RxBuffer,2048); 
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */
