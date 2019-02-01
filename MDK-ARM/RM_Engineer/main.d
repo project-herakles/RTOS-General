@@ -1,7 +1,7 @@
 rm_engineer\main.o: ../Src/main.c
-rm_engineer\main.o: ../Inc/main.h
+rm_engineer\main.o: ..\Inc\main.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-rm_engineer\main.o: ../Inc/stm32f4xx_hal_conf.h
+rm_engineer\main.o: ..\Inc\stm32f4xx_hal_conf.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 rm_engineer\main.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -28,6 +28,7 @@ rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
@@ -37,7 +38,7 @@ rm_engineer\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-rm_engineer\main.o: ../Inc/FreeRTOSConfig.h
+rm_engineer\main.o: ..\Inc\FreeRTOSConfig.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
@@ -49,6 +50,7 @@ rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 rm_engineer\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+<<<<<<< HEAD
 rm_engineer\main.o: ../Inc/can.h
 rm_engineer\main.o: ../Inc/dma.h
 rm_engineer\main.o: ../Inc/usart.h
@@ -58,6 +60,20 @@ rm_engineer\main.o: ../Inc/usbd_conf.h
 rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rm_engineer\main.o: ../Inc/gpio.h
+=======
+rm_engineer\main.o: ..\Inc\can.h
+rm_engineer\main.o: ..\Inc\dma.h
+rm_engineer\main.o: ..\Inc\usart.h
+rm_engineer\main.o: ..\Inc\gpio.h
+rm_engineer\main.o: ..\MDK-ARM\imu_task.h
+rm_engineer\main.o: ..\MDK-ARM\bsp_imu.h
+rm_engineer\main.o: ..\MDK-ARM\mytype.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+rm_engineer\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5
 rm_engineer\main.o: ../BSP/bsp_can.h
 rm_engineer\main.o: ../BSP/bsp_uart.h
 rm_engineer\main.o: ../BSP/keyboard_def.h
+rm_engineer\main.o: ..\Inc\gun.h

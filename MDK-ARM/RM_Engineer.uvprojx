@@ -391,6 +391,75 @@
         </Group>
         <Group>
           <GroupName>Application/User</GroupName>
+          <GroupOption>
+            <CommonProperty>
+              <UseCPPCompiler>0</UseCPPCompiler>
+              <RVCTCodeConst>0</RVCTCodeConst>
+              <RVCTZI>0</RVCTZI>
+              <RVCTOtherData>0</RVCTOtherData>
+              <ModuleSelection>0</ModuleSelection>
+              <IncludeInBuild>2</IncludeInBuild>
+              <AlwaysBuild>2</AlwaysBuild>
+              <GenerateAssemblyFile>2</GenerateAssemblyFile>
+              <AssembleAssemblyFile>2</AssembleAssemblyFile>
+              <PublicsOnly>2</PublicsOnly>
+              <StopOnExitCode>11</StopOnExitCode>
+              <CustomArgument></CustomArgument>
+              <IncludeLibraryModules></IncludeLibraryModules>
+              <ComprImg>1</ComprImg>
+            </CommonProperty>
+            <GroupArmAds>
+              <Cads>
+                <interw>2</interw>
+                <Optim>0</Optim>
+                <oTime>2</oTime>
+                <SplitLS>2</SplitLS>
+                <OneElfS>2</OneElfS>
+                <Strict>2</Strict>
+                <EnumInt>2</EnumInt>
+                <PlainCh>2</PlainCh>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <wLevel>0</wLevel>
+                <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
+                <uC99>2</uC99>
+                <uGnu>2</uGnu>
+                <useXO>2</useXO>
+                <v6Lang>0</v6Lang>
+                <v6LangP>0</v6LangP>
+                <vShortEn>2</vShortEn>
+                <vShortWch>2</vShortWch>
+                <v6Lto>2</v6Lto>
+                <v6WtE>2</v6WtE>
+                <v6Rtti>2</v6Rtti>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath>..\MDK-ARM;..\Inc</IncludePath>
+                </VariousControls>
+              </Cads>
+              <Aads>
+                <interw>2</interw>
+                <Ropi>2</Ropi>
+                <Rwpi>2</Rwpi>
+                <thumb>2</thumb>
+                <SplitLS>2</SplitLS>
+                <SwStkChk>2</SwStkChk>
+                <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
+                <useXO>2</useXO>
+                <uClangAs>2</uClangAs>
+                <VariousControls>
+                  <MiscControls></MiscControls>
+                  <Define></Define>
+                  <Undefine></Undefine>
+                  <IncludePath></IncludePath>
+                </VariousControls>
+              </Aads>
+            </GroupArmAds>
+          </GroupOption>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -438,6 +507,7 @@
               <FilePath>../Src/stm32f4xx_hal_timebase_TIM.c</FilePath>
             </File>
             <File>
+<<<<<<< HEAD
               <FileName>usb_device.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\usb_device.c</FilePath>
@@ -456,6 +526,26 @@
               <FileName>usbd_desc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\usbd_desc.c</FilePath>
+=======
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\spi.h</FilePath>
+            </File>
+            <File>
+              <FileName>gun.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\gun.c</FilePath>
+            </File>
+            <File>
+              <FileName>gun.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\gun.h</FilePath>
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5
             </File>
           </Files>
         </Group>
@@ -543,6 +633,7 @@
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c</FilePath>
             </File>
             <File>
+<<<<<<< HEAD
               <FileName>stm32f4xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_ll_usb.c</FilePath>
@@ -556,6 +647,16 @@
               <FileName>stm32f4xx_hal_pcd_ex.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_pcd_ex.c</FilePath>
+=======
+              <FileName>stm32f4xx_hal_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\STM32F4xx_HAL_Driver\Src\stm32f4xx_hal_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_hal_spi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_spi.h</FilePath>
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5
             </File>
           </Files>
         </Group>
@@ -637,6 +738,31 @@
               <FileType>1</FileType>
               <FilePath>..\BSP\bsp_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>bsp_imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\bsp_imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_imu.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\bsp_imu.h</FilePath>
+            </File>
+            <File>
+              <FileName>mytype.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mytype.h</FilePath>
+            </File>
+            <File>
+              <FileName>ist8310_reg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ist8310_reg.h</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6500_reg.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\mpu6500_reg.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -651,6 +777,16 @@
               <FileName>canTask.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tasks\canTask.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\imu_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu_task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\imu_task.h</FilePath>
             </File>
           </Files>
         </Group>

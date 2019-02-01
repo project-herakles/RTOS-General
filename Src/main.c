@@ -55,10 +55,12 @@
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
-
+#include "imu_task.h"
 /* USER CODE BEGIN Includes */
 #include "bsp_can.h"
 #include "bsp_uart.h"
+#include "bsp_imu.h"
+#include "gun.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -129,7 +131,10 @@ int main(void)
   /* Start UART Receive With IDLE Interrupt */ 
   HAL_UART_Receive_IT_IDLE(&huart6,UART_RxBuffer,2048); 
   /* USER CODE END 2 */
-
+	imu_init();
+	MX_TIM4_Init();
+	gun_init();
+	SetFrictionWheelSpeed(2000);
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 

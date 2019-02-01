@@ -9,10 +9,15 @@
 "rm_engineer\stm32f4xx_it.o"
 "rm_engineer\stm32f4xx_hal_msp.o"
 "rm_engineer\stm32f4xx_hal_timebase_tim.o"
+<<<<<<< HEAD
 "rm_engineer\usb_device.o"
 "rm_engineer\usbd_cdc_if.o"
 "rm_engineer\usbd_conf.o"
 "rm_engineer\usbd_desc.o"
+=======
+"rm_engineer\spi.o"
+"rm_engineer\gun.o"
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5
 "rm_engineer\stm32f4xx_hal_can.o"
 "rm_engineer\stm32f4xx_hal_tim.o"
 "rm_engineer\stm32f4xx_hal_tim_ex.o"
@@ -29,9 +34,13 @@
 "rm_engineer\stm32f4xx_hal_pwr_ex.o"
 "rm_engineer\stm32f4xx_hal_cortex.o"
 "rm_engineer\stm32f4xx_hal.o"
+<<<<<<< HEAD
 "rm_engineer\stm32f4xx_ll_usb.o"
 "rm_engineer\stm32f4xx_hal_pcd.o"
 "rm_engineer\stm32f4xx_hal_pcd_ex.o"
+=======
+"rm_engineer\stm32f4xx_hal_spi.o"
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5
 "rm_engineer\system_stm32f4xx.o"
 "rm_engineer\heap_4.o"
 "rm_engineer\port.o"
@@ -45,8 +54,10 @@
 "rm_engineer\bsp_can.o"
 "rm_engineer\bsp_motor.o"
 "rm_engineer\bsp_uart.o"
+"rm_engineer\bsp_imu.o"
 "rm_engineer\chassistask.o"
 "rm_engineer\cantask.o"
+"rm_engineer\imu_task.o"
 "rm_engineer\pid.o"
 "rm_engineer\encoder.o"
 "rm_engineer\usbd_cdc.o"

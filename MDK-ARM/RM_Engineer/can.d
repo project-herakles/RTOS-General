@@ -1,8 +1,8 @@
 rm_engineer\can.o: ../Src/can.c
-rm_engineer\can.o: ../Inc/can.h
+rm_engineer\can.o: ..\Inc\can.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h
-rm_engineer\can.o: ../Inc/stm32f4xx_hal_conf.h
-rm_engineer\can.o: ../Inc/main.h
+rm_engineer\can.o: ..\Inc\stm32f4xx_hal_conf.h
+rm_engineer\can.o: ..\Inc\main.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h
 rm_engineer\can.o: ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
@@ -29,10 +29,15 @@ rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+<<<<<<< HEAD
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h
 rm_engineer\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h
 rm_engineer\can.o: ../Inc/gpio.h
+=======
+rm_engineer\can.o: ..\Inc\gpio.h
+>>>>>>> 799ca5908bda0b9c8de44967f045d5d7aaa15ed5

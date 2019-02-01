@@ -58,7 +58,8 @@
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/
-
+#define friction_wheel_Pin GPIO_PIN_15
+#define friction_wheel_GPIO_Port GPIOD
 #define LED_RED_Pin GPIO_PIN_11
 #define LED_RED_GPIO_Port GPIOE
 #define LED_GREEN_Pin GPIO_PIN_14
