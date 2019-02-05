@@ -1,0 +1,5 @@
+Further modification: 
+1) in motorControlTask.c, the feedback variable need to changed into an extern one after the CAN feedback of gimbal pitch motor is located; 
+2) in Control.c: rcDealler, implementation for special functions need to be added, such as the control over shooting, friction wheel and the servos; 
+3) CAN and Chassis Task need to receive in-time control reference from motroControlTask via external variables;
+4) Warnings concerning emun type need to be solved. 

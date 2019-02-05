@@ -7,6 +7,7 @@
 #include "bsp_can.h"
 #include "bsp_uart.h"
 #include "chassisTask.h"
+#include "Control.h"
 
 volatile Encoder CM1Encoder;
 volatile Encoder CM2Encoder;
@@ -20,8 +21,8 @@ PID_Regulator_t CM4SpeedPID = CHASSIS_MOTOR_SPEED_PID_DEFAULT;
 extern CAN_HandleTypeDef hcan1;
 extern CAN_TxHeaderTypeDef can1TxHeader0;
 
-extern rc_info_t rc;
-extern chassis_ctrl chassis_ref;
+extern rc_info_t RcSig;
+extern ctrl_info_t CtrlSig;
 
 osThreadId chassisHandle;
 
@@ -40,7 +41,7 @@ void send_Chassis_Msg(CAN_HandleTypeDef* hcan, int16_t cm1_iq,int16_t cm2_iq,int
 		HAL_CAN_AddTxMessage(hcan,&msgHeader,canTxMsg0,(void*)CAN_TX_MAILBOX0);
 }
 
-void chassis_remoteControl(chassis_ctrl * chassis_ref, rc_info_t * rc)
+void chassis_remoteControl(chassis_ctrl_t * chassis_ref, rc_info_t * rc)
 {
 	osDelay(1);
 	CM1SpeedPID.ref =  (-chassis_ref->forward_back_speed_ref*0.075 + chassis_ref->left_right_speed_ref*0.075 + chassis_ref->rotation_speed_ref*0.075)*18;
@@ -89,7 +90,7 @@ void chassis_task(void const *argument)
 	uint32_t chassis_wake_time = osKernelSysTick();
 	for(;;)
   {
-		chassis_remoteControl(&chassis_ref, &rc);
+		chassis_remoteControl(CtrlSig.chassis_ctrl_ptr, &RcSig);
     osDelayUntil(&chassis_wake_time, 5);
   }
 }

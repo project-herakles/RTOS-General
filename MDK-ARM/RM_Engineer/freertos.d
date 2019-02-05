@@ -49,6 +49,10 @@ rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\freertos.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rm_engineer\freertos.o: ../Tasks/canTask.h
+rm_engineer\freertos.o: ../Tasks/motorControlTask.h
+rm_engineer\freertos.o: ..\Inc\bool.h
+rm_engineer\freertos.o: ..\Inc\Control.h
+rm_engineer\freertos.o: ..\Inc\keyboard.h
 rm_engineer\freertos.o: ..\MDK-ARM\imu_task.h
 rm_engineer\freertos.o: ..\MDK-ARM\bsp_imu.h
 rm_engineer\freertos.o: ..\MDK-ARM\mytype.h

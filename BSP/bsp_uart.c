@@ -13,10 +13,10 @@
 #include "bsp_uart.h"
 #include "usart.h"
 #include "main.h"
+#include "Control.h"
 
 uint8_t   dbus_buf[DBUS_BUFLEN];
-rc_info_t rc;
-chassis_ctrl chassis_ref;
+extern rc_info_t RcSig;
 
 
 
@@ -92,15 +92,23 @@ void rc_callback_handler(rc_info_t *rc, uint8_t *buff)
   rc->ch4 = (buff[4] >> 1 | buff[5] << 7) & 0x07FF;
   rc->ch4 -= 1024;
 	
-	rc->kb_ctrl.forward_back_direction =      (buff[14] & W)*Forward+((buff[14] & S)>>1)*Backward;
-	rc->kb_ctrl.left_right_direction   = ((buff[14] & E)>>7)*Right+((buff[14] & Q)>>6)*Left;
-	rc->kb_ctrl.rotation_direction     = ((buff[14] & D)>>3)*CW+((buff[14] & A)>>2)*CCW;
-	rc->kb_ctrl.speed_mood             = ((buff[14] & Shift)>>4)* FAST_SPEED + NORMAL_SPEED;
-	rc->kb_othe = buff[15];
+	//mouse and key control need to be added
+	rc->ch5=0;									//mouse-y
+	rc->ch6=0;									//mouse-x
+	rc->ch7=0;									//mouse-z
+	rc->ch8=0;									//mouse-l
+	rc->ch9=0;									//mouse-r
+	rc->kb_ctrl.A.n   = 0;
+	rc->kb_ctrl.D.n   = 0;
+	rc->kb_ctrl.W.n   = 0;
+	rc->kb_ctrl.S.n   = 0;
+	rc->kb_ctrl.Q     = 0;
+	rc->kb_ctrl.E     = 0;
+	rc->kb_ctrl.High.n= 0;
+	rc->kb_ctrl.Swing = 0;
 	
-	rc->ch5 = 0;
-	rc->ch6 = 0;
-	rc->ch7 = 0;
+	//Handler for other signals need to be added
+	//rc->kb_ctrl.othKey
 	
   rc->sw1 = ((buff[5] >> 4) & 0x000C) >> 2;
   rc->sw2 = (buff[5] >> 4) & 0x0003;
@@ -112,8 +120,6 @@ void rc_callback_handler(rc_info_t *rc, uint8_t *buff)
   {
     memset(rc, 0, sizeof(rc_info_t));
   }
-	
-	rc_dealler(rc);
 }
 
 /**
@@ -135,7 +141,7 @@ static void uart_rx_idle_callback(UART_HandleTypeDef* huart)
 		/* handle dbus data dbus_buf from DMA */
 		if ((DBUS_MAX_LEN - dma_current_data_counter(huart->hdmarx->Instance)) == DBUS_BUFLEN)
 		{
-			rc_callback_handler(&rc, dbus_buf);	
+			rc_callback_handler(&RcSig, dbus_buf);	
 		}
 		
 		/* restart dma transmission */
@@ -170,46 +176,4 @@ void dbus_uart_init(void)
 	__HAL_UART_ENABLE_IT(&DBUS_HUART, UART_IT_IDLE);
 
 	uart_receive_dma_no_it(&DBUS_HUART, dbus_buf, DBUS_MAX_LEN);
-}
-
-
-/**
-	* @brief  calcu speed ref basing on rc data
-	* @param	remote: rc data to be passed in
-	* @retval
-*/
-void rc_dealler(const rc_info_t * remote)
-{
-	//ch2 for forward_back speed ref
-	//ch1 for left_right speed ref
-	//ch3 for rotation_ref
-	//rea means true value
-	//abs means absolute value
-	int16_t ch1_abs;
-	int16_t ch2_abs;
-	int16_t ch3_abs;
-	
-	//keyboard is not active
-	//keyboard has a higher priority over remote controller
-	if(NO_KEY_PRESSED(remote->kb_ctrl))
-// no QWEASD Shift or Ctrl is pressed
-	{
-		ch1_abs = remote->ch1<0 ? -(remote->ch1):remote->ch1;
-	  ch2_abs = remote->ch2<0 ? -(remote->ch2):remote->ch2;
-		ch3_abs = remote->ch3<0 ? -(remote->ch3):remote->ch3;
-		chassis_ref.forward_back_speed_ref = remote->ch2>=10? remote->ch2 * ch2_abs * SPEED_CONST    : 0;
-		chassis_ref.left_right_speed_ref   = remote->ch1>=10? remote->ch1 * ch1_abs * SPEED_CONST    : 0;
-		chassis_ref.rotation_speed_ref     = remote->ch3>=10? remote->ch3 * ch3_abs * ROTATION_CONST : 0;
-	}
-	//keyboard is active
-	else
-	{
-		/*
-		* two value mode: fast and normal
-		* control by shift
-		*/
-		chassis_ref.forward_back_speed_ref = remote->kb_ctrl.forward_back_direction * remote->kb_ctrl.speed_mood;
-		chassis_ref.left_right_speed_ref   = remote->kb_ctrl.left_right_direction   * remote->kb_ctrl.speed_mood;
-		chassis_ref.rotation_speed_ref     = remote->kb_ctrl.rotation_direction     * ROTATION_SPEED;
-	}
 }

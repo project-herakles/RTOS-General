@@ -526,6 +526,46 @@
               <FileType>5</FileType>
               <FilePath>..\Inc\gun.h</FilePath>
             </File>
+            <File>
+              <FileName>bool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\bool.h</FilePath>
+            </File>
+            <File>
+              <FileName>Control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\Control.h</FilePath>
+            </File>
+            <File>
+              <FileName>keyboard.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\keyboard.h</FilePath>
+            </File>
+            <File>
+              <FileName>ShootFSM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\ShootFSM.h</FilePath>
+            </File>
+            <File>
+              <FileName>SinCosList.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Inc\SinCosList.h</FilePath>
+            </File>
+            <File>
+              <FileName>keyboard.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\keyboard.c</FilePath>
+            </File>
+            <File>
+              <FileName>ShootFSM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\ShootFSM.c</FilePath>
+            </File>
+            <File>
+              <FileName>Control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Control.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -750,6 +790,16 @@
               <FileName>imu_task.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\imu_task.h</FilePath>
+            </File>
+            <File>
+              <FileName>motorControlTask.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tasks\motorControlTask.h</FilePath>
+            </File>
+            <File>
+              <FileName>motorControlTask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tasks\motorControlTask.c</FilePath>
             </File>
           </Files>
         </Group>

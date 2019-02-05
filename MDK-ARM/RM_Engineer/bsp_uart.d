@@ -37,3 +37,6 @@ rm_engineer\bsp_uart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 rm_engineer\bsp_uart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 rm_engineer\bsp_uart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rm_engineer\bsp_uart.o: ..\BSP\keyboard_def.h
+rm_engineer\bsp_uart.o: ../Inc/Control.h
+rm_engineer\bsp_uart.o: ../Inc/bool.h
+rm_engineer\bsp_uart.o: ../Inc/keyboard.h

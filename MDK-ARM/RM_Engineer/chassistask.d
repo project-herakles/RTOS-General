@@ -55,3 +55,6 @@ rm_engineer\chassistask.o: ../BSP/bsp_uart.h
 rm_engineer\chassistask.o: ../Inc/usart.h
 rm_engineer\chassistask.o: ../BSP/keyboard_def.h
 rm_engineer\chassistask.o: ..\Tasks\chassisTask.h
+rm_engineer\chassistask.o: ../Inc/Control.h
+rm_engineer\chassistask.o: ../Inc/bool.h
+rm_engineer\chassistask.o: ../Inc/keyboard.h

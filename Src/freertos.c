@@ -57,6 +57,7 @@
 /* USER CODE BEGIN Includes */     
 #include "chassisTask.h"
 #include "canTask.h"
+#include "motorControlTask.h"
 #include "imu_task.h"
 /* USER CODE END Includes */
 
@@ -122,6 +123,7 @@ void MX_FREERTOS_Init(void) {
 	create_CAN_Task();
 	create_chassis_Task();
 	create_IMU_Task();
+	create_motorControl_Task();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_QUEUES */
