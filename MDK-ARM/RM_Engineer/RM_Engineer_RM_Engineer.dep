@@ -218,7 +218,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5C4490AD)
 I (../Tasks/canTask.h)(0x5C467910)
 I (../Tasks/motorControlTask.h)(0x5C593108)
 I (..\Inc\bool.h)(0x5C59285E)
-I (..\Inc\Control.h)(0x5C59392F)
+I (..\Inc\Control.h)(0x5C5BBF10)
 I (..\Inc\keyboard.h)(0x5C59285C)
 I (..\MDK-ARM\imu_task.h)(0x5C59392F)
 I (..\MDK-ARM\bsp_imu.h)(0x5C53B103)
@@ -453,7 +453,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5C4490AD)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5C4490AD)
 F (..\Inc\gun.h)(0x5C59392F)()
 F (..\Inc\bool.h)(0x5C59285E)()
-F (..\Inc\Control.h)(0x5C59392F)()
+F (..\Inc\Control.h)(0x5C5BBF10)()
 F (..\Inc\keyboard.h)(0x5C59285C)()
 F (..\Inc\ShootFSM.h)(0x5C5926D1)()
 F (..\Inc\SinCosList.h)(0x5C5926D1)()
@@ -462,8 +462,8 @@ I (..\Inc\keyboard.h)(0x5C59285C)
 I (..\Inc\bool.h)(0x5C59285E)
 F (..\Src\ShootFSM.c)(0x5C5926D1)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\Inc -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\shootfsm.o --omf_browse rm_engineer\shootfsm.crf --depend rm_engineer\shootfsm.d)
 I (..\Inc\ShootFSM.h)(0x5C5926D1)
-F (..\Src\Control.c)(0x5C593719)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\Inc -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\control.o --omf_browse rm_engineer\control.crf --depend rm_engineer\control.d)
-I (..\Inc\Control.h)(0x5C59392F)
+F (..\Src\Control.c)(0x5C5BBFAA)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\MDK-ARM -I ..\Inc -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\control.o --omf_browse rm_engineer\control.crf --depend rm_engineer\control.d)
+I (..\Inc\Control.h)(0x5C5BBF10)
 I (..\Inc\bool.h)(0x5C59285E)
 I (..\Inc\keyboard.h)(0x5C59285C)
 I (..\Inc\SinCosList.h)(0x5C5926D1)
@@ -1228,7 +1228,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5C4490AD)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5C4490AD)
 F (..\BSP\bsp_motor.c)(0x5C46790F)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\bsp_motor.o --omf_browse rm_engineer\bsp_motor.crf --depend rm_engineer\bsp_motor.d)
 I (..\BSP\bsp_motor.h)(0x5C46790F)
-F (..\BSP\bsp_uart.c)(0x5C593719)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\bsp_uart.o --omf_browse rm_engineer\bsp_uart.crf --depend rm_engineer\bsp_uart.d)
+F (..\BSP\bsp_uart.c)(0x5C5BBFAA)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\bsp_uart.o --omf_browse rm_engineer\bsp_uart.crf --depend rm_engineer\bsp_uart.d)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599EDB3C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599EDB3C)
 I (..\BSP\bsp_uart.h)(0x5C59392F)
@@ -1266,7 +1266,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x5C4490AD)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x5C4490AD)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x5C4490AD)
 I (..\BSP\keyboard_def.h)(0x5C46790F)
-I (../Inc/Control.h)(0x5C59392F)
+I (../Inc/Control.h)(0x5C5BBF10)
 I (../Inc/bool.h)(0x5C59285E)
 I (../Inc/keyboard.h)(0x5C59285C)
 F (.\bsp_imu.c)(0x5C53B103)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\bsp_imu.o --omf_browse rm_engineer\bsp_imu.crf --depend rm_engineer\bsp_imu.d)
@@ -1316,7 +1316,7 @@ F (.\bsp_imu.h)(0x5C53B103)()
 F (.\mytype.h)(0x5C53B103)()
 F (.\ist8310_reg.h)(0x5C53B103)()
 F (.\mpu6500_reg.h)(0x5C53B103)()
-F (..\Tasks\chassisTask.c)(0x5C5939D0)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\chassistask.o --omf_browse rm_engineer\chassistask.crf --depend rm_engineer\chassistask.d)
+F (..\Tasks\chassisTask.c)(0x5C5BBCC7)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\chassistask.o --omf_browse rm_engineer\chassistask.crf --depend rm_engineer\chassistask.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x5C4490AE)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599EDB3E)
@@ -1372,7 +1372,7 @@ I (../BSP/bsp_uart.h)(0x5C59392F)
 I (../Inc/usart.h)(0x5C53B0DC)
 I (../BSP/keyboard_def.h)(0x5C46790F)
 I (..\Tasks\chassisTask.h)(0x5C467910)
-I (../Inc/Control.h)(0x5C59392F)
+I (../Inc/Control.h)(0x5C5BBF10)
 I (../Inc/bool.h)(0x5C59285E)
 I (../Inc/keyboard.h)(0x5C59285C)
 F (..\Tasks\canTask.c)(0x5C467910)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\cantask.o --omf_browse rm_engineer\cantask.crf --depend rm_engineer\cantask.d)
@@ -1488,7 +1488,7 @@ F (..\Tasks\motorControlTask.h)(0x5C593108)()
 F (..\Tasks\motorControlTask.c)(0x5C593A28)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Drivers/CMSIS/Include -I ../BSP -I ../Tasks -I ../LIB-I.\RTE\_RM_Engineer-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="526" -D_RTE_ -DSTM32F427xx -DUSE_HAL_DRIVER -DSTM32F427xx-o rm_engineer\motorcontroltask.o --omf_browse rm_engineer\motorcontroltask.crf --depend rm_engineer\motorcontroltask.d)
 I (..\Tasks\motorControlTask.h)(0x5C593108)
 I (../Inc/bool.h)(0x5C59285E)
-I (../Inc/Control.h)(0x5C59392F)
+I (../Inc/Control.h)(0x5C5BBF10)
 I (../Inc/keyboard.h)(0x5C59285C)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/freertos.h)(0x5C4490AE)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599EDB3C)

@@ -106,19 +106,19 @@ int16_t chassis_speed_key(keysignal_t * key,keysignal_t * high, bool_t * state, 
  */ 
 void angle_determ(bool_t swing, ctrl_info_t * ctrl, int16_t delta_gh, int16_t delta_gv, int16_t delta_cr, int16_t angle_inbet)
 {
-    if(ctrl->state[2]==0 && ctrl->state[3]==0)//C follow G mode
+    if(ctrl->state[2]==False && ctrl->state[3]==False)//C follow G mode
     {
         // in this mode, gimbal will not rotate relatively, angle of chassis rotation is either its orignal value or the gimbal ref
         ctrl->gimbal_ctrl_ptr->horizontal_angle_ref += (delta_cr + delta_gh);
         ctrl->chassis_ctrl_ptr->rotation_speed_ref  =  (int16_t)(-1*ANGLE_INBET*angle_inbet);
         //if(angle_inbet < ANGLE_ERROR && angle_inbet > -1*ANGLE_ERROR)           ctrl->gimbal_ctrl_ptr->horizontal_angle_ref -= angle_inbet;
     }
-    else if(ctrl->state[2]==0 && ctrl->state[3]==1)//chassis move, gimbal free
+    else if(ctrl->state[2]==False && ctrl->state[3]==True)//chassis move, gimbal free
     {
         ctrl->chassis_ctrl_ptr->rotation_speed_ref  =  delta_cr;
         ctrl->gimbal_ctrl_ptr->horizontal_angle_ref += (int16_t)(delta_gh-ANGLE_INBET*angle_inbet);
     }
-    else if(ctrl->state[2]==1 && ctrl->state[3]==0)//chassis rotate and gimbal stick
+    else if(ctrl->state[2]==True && ctrl->state[3]==False)//chassis rotate and gimbal stick
     {
         if(swing)
         {
@@ -157,24 +157,24 @@ void state_transfer(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbe
                                                                                     one_bit.S,one_bit.M,one_bit.B, one_bit.S1,one_bit.S2);
     #endif
 
-    ctrl->state[2] = one_bit.S1;
-    ctrl->state[3] = one_bit.S2;
+		ctrl->state[2] = one_bit.S1?True:False;
+		ctrl->state[3] = one_bit.S2?True:False;
 
     if(rc->sw2 == 3) // stop and initial
     {
-        if(ctrl->state[0]!=0 || ctrl->state[1]!=0)        chassisGimbalInit(ctrl);
-        ctrl->state[0] = 0;
-        ctrl->state[1] = 0;
+        if(ctrl->state[0]!=False || ctrl->state[1]!=False)        chassisGimbalInit(ctrl);
+        ctrl->state[0] = False;
+        ctrl->state[1] = False;
     }
     else if(rc->sw2 == 1) // manual
     {
-        ctrl->state[0] = 0;
-        ctrl->state[1] = 1;
+        ctrl->state[0] = False;
+        ctrl->state[1] = True;
     }
     else if(rc->sw2 == 2) // auto aiming
     {
-        ctrl->state[0] = 1;
-        ctrl->state[1] = 0;          
+        ctrl->state[0] = True;
+        ctrl->state[1] = False;          
     }
     /*else if(rc->sw1 == 2 && rc->sw2 != 3) // auto
     {
@@ -200,7 +200,7 @@ void state_transfer(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbe
  */ 
 void angle_cala(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
 {
-    if(ctrl->state[0]==0 && ctrl->state[1]==0)                 //stop mode
+    if(ctrl->state[0]==False && ctrl->state[1]==False)                 //stop mode
     {
         state_transfer(rc,ctrl,angle_inbet);
         return;
@@ -208,7 +208,7 @@ void angle_cala(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
     int16_t delta_chassis_angle = chassis_angle_key(&rc->kb_ctrl);
     int16_t delta_gimbal_hAngle;
     int16_t delta_gimbal_vAngle;
-    if(ctrl->state[0]==0 && ctrl->state[1]==1)                 //manual mode
+    if(ctrl->state[0]==False && ctrl->state[1]==True)                 //manual mode
     {
         //independent for mouse-control-calculation
         gimbal_ctrl_t gimbal_mouse;
@@ -252,12 +252,12 @@ void angle_cala(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
  */ 
 void speed_calc(rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
 {
-    if(ctrl->state[0]==0 && ctrl->state[1]==0)
+    if(ctrl->state[0]==False && ctrl->state[1]==False)
     {
         *(ctrl->chassis_ctrl_ptr) = (chassis_ctrl_t)chassisInit;
         return;
     }// stop & initial mode
-    if(ctrl->state[0]==1 || (RCMOVE_INACTIVE))                // auto-aiming or auto or remote-controller gives no sigals
+    if(ctrl->state[0]==True || (RCMOVE_INACTIVE))                // auto-aiming or auto or remote-controller gives no sigals
     {
         int16_t fSpeed = ctrl->chassis_ctrl_ptr->forward_back_speed_ref>0?ctrl->chassis_ctrl_ptr->forward_back_speed_ref:0;
         fSpeed = chassis_speed_key(&rc->kb_ctrl.W, &rc->kb_ctrl.High, rc->kb_ctrl.keyState.w_state, fSpeed);
@@ -342,7 +342,14 @@ void rcDealler(ctrl_info_t * ctrl, const int16_t * feed, rc_info_t * rc, int16_t
 	remote control signals are handled by interrupt directly
 	this function is going to handle the control signal for special func
 	*/
-	//ctrl->func_ptr->fWheel
+	if(rc->sw1.n==1&&rc->sw1.p!=1)//friction wheel in standard and hero, fetch bullets in Engineer
+	{
+		ctrl->func_ptr->fWheel = ctrl->func_ptr->fWheel?0:1; //flip if sw1 is at position 1
+	}
+	if(rc->sw1.n==2&&rc->sw1.p!=2)//magazine lid in standard and hero, fetch damaged robots in Engineer
+	{
+		ctrl->func_ptr->magazineLid = ctrl->func_ptr->magazineLid?0:1; //flip if sw1 is at position 1
+	}
 	//ctrl->func_ptr->shoot
 	//ctrl->func_ptr->shootMode
 

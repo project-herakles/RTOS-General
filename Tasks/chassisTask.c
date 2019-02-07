@@ -57,7 +57,7 @@ void chassis_remoteControl(chassis_ctrl_t * chassis_ref, rc_info_t * rc)
 	PID_Calc(&CM3SpeedPID);
 	PID_Calc(&CM4SpeedPID);
 	send_Chassis_Msg(&hcan1, (CM1SpeedPID.output*SPEED_OUTPUT_ATTENUATION),CM2SpeedPID.output*SPEED_OUTPUT_ATTENUATION,CM3SpeedPID.output*SPEED_OUTPUT_ATTENUATION,(CM4SpeedPID.output*SPEED_OUTPUT_ATTENUATION));
-	if(rc->sw1==2 && rc->sw2==2)
+	if(rc->sw1.n==3 && rc->sw2==3)
 	{
 	   CM1SpeedPID.ref = 0;
 	   CM2SpeedPID.ref = 0;

@@ -35,6 +35,9 @@ typedef unsigned short     int uint16_t;
 #define gimbalInit  {0,0}
 #define CtrlInit    {.state={False,False,False,False},.gimbal_ctrl_ptr=&GimbalSig,.chassis_ctrl_ptr=&ChassisSig}
 
+#define OpenMagazineLid(a)	(int16_t)a*90
+//a is the func signal magazineLid
+
 #ifdef  STANDARD
 #define FuncInit    {0,0}
 #endif
@@ -49,6 +52,7 @@ typedef struct
 {
     #ifdef   STANDARD
     uint8_t fWheel : 1;
+		uint8_t magazineLid : 1; //1=>90degree; 0=>0degree
     uint8_t shoot  : 2;
     uint8_t shootMode : 1;
     #endif
@@ -70,6 +74,11 @@ typedef struct
 //SHOOTMODE: 0(0)----Waiting for signal/Done; 1(1)----Firing
 //HOLDER/FECTH_ROBOT/GET_BULLET: 00(0)----Retraction; 01(1)----Extending; 10(-2)----Retracting; 11(-1)----Extended
                             //   OUTPUT_TO_LINEAR_MOTOR: X-X>>1
+typedef struct
+{
+	uint8_t n;
+	uint8_t p;
+}statesignal_t;
 
 typedef struct
 {
@@ -111,7 +120,7 @@ typedef struct
 	KbCtrl_t kb_ctrl;
 
 	/* left and right lever information */
-	uint8_t sw1;
+	statesignal_t sw1;
 	uint8_t sw2;
 } rc_info_t;
 

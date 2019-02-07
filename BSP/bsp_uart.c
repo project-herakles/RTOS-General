@@ -93,24 +93,25 @@ void rc_callback_handler(rc_info_t *rc, uint8_t *buff)
   rc->ch4 -= 1024;
 	
 	//mouse and key control need to be added
-	rc->ch5=0;									//mouse-y
-	rc->ch6=0;									//mouse-x
-	rc->ch7=0;									//mouse-z
-	rc->ch8=0;									//mouse-l
-	rc->ch9=0;									//mouse-r
-	rc->kb_ctrl.A.n   = 0;
-	rc->kb_ctrl.D.n   = 0;
-	rc->kb_ctrl.W.n   = 0;
-	rc->kb_ctrl.S.n   = 0;
-	rc->kb_ctrl.Q     = 0;
-	rc->kb_ctrl.E     = 0;
-	rc->kb_ctrl.High.n= 0;
-	rc->kb_ctrl.Swing = 0;
+	rc->ch5=((int16_t)buff[8]) | ((int16_t)buff[9] << 8);									//mouse-y
+	rc->ch6=((int16_t)buff[6]) | ((int16_t)buff[7] << 8);									//mouse-x
+	rc->ch7=((int16_t)buff[10]) | ((int16_t)buff[11] << 8);									//mouse-z
+	rc->ch8=buff[12];									//mouse-l
+	rc->ch9=buff[13];									//mouse-r
+	rc->kb_ctrl.A.n   = (buff[14]&A)>>2;
+	rc->kb_ctrl.D.n   = (buff[14]&D)>>3;
+	rc->kb_ctrl.W.n   = (buff[14]&W);
+	rc->kb_ctrl.S.n   = (buff[14]&S)>>1;
+	rc->kb_ctrl.Q     = (buff[14]&Q)>>6?True:False;
+	rc->kb_ctrl.E     = (buff[14]&E)>>7?True:False;
+	rc->kb_ctrl.High.n= (buff[14]&Shift)>>4;
+	rc->kb_ctrl.Swing = (buff[14]&Ctrl)>>5?True:False;
 	
 	//Handler for other signals need to be added
-	//rc->kb_ctrl.othKey
+	rc->kb_ctrl.othKey = buff[15];
 	
-  rc->sw1 = ((buff[5] >> 4) & 0x000C) >> 2;
+  rc->sw1.p = rc->sw1.n;
+	rc->sw1.n = ((buff[5] >> 4) & 0x000C) >> 2;
   rc->sw2 = (buff[5] >> 4) & 0x0003;
   
   if ((abs(rc->ch1) > 660) || \
