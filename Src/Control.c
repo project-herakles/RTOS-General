@@ -1,5 +1,6 @@
 #include "Control.h"
 #include "bool.h"
+#include "keyboard_def.h"
 #include "SinCosList.h"
 
 //#define CONTROL_DEBUG
@@ -159,7 +160,7 @@ void state_transfer(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbe
 
 		ctrl->state[2] = one_bit.S1?True:False;
 		ctrl->state[3] = one_bit.S2?True:False;
-
+	#ifndef ENGINEER
     if(rc->sw2 == 3) // stop and initial
     {
         if(ctrl->state[0]!=False || ctrl->state[1]!=False)        chassisGimbalInit(ctrl);
@@ -182,6 +183,11 @@ void state_transfer(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbe
         ctrl->state[1] = 1;
     }*/
     else                                                return; //not-in-used
+	#else
+		ctrl->state[0] = False;
+		ctrl->state[1] = True;
+		//as for the Engineer, it should always be in MANUAL mode
+	#endif
 }
 
 /**angle calculation
@@ -307,26 +313,6 @@ void refCalc(rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
     //state_transfer(rc, ctrl);angle_determ(ctrl); inside angle_cala()
 }
 
-/**function control
- * @brief: implement particular functions for different types of robots
- *         including state transfer and output generate
- * @param: rc----structure for remote controller signals
- *         func----structure for function implementation
- * @reval: 
-*/
-void funcCtrl(rc_info_t * rc, func_t * func)
-{
-    #ifdef  STANDARD
-    //TO DO
-    #endif
-    #ifdef  HERO
-    //TO DO
-    #endif
-    #ifdef  ENGINEER
-    //TO DO
-    #endif
-}
-
 /**remote control data dealler
  * @brief: store the collected data (communication buffer and motor feedback) in rc
  *         NOTE: this is merely for testing
@@ -342,6 +328,7 @@ void rcDealler(ctrl_info_t * ctrl, const int16_t * feed, rc_info_t * rc, int16_t
 	remote control signals are handled by interrupt directly
 	this function is going to handle the control signal for special func
 	*/
+	#ifndef ENGINEER
 	if(rc->sw1.n==1&&rc->sw1.p!=1)//friction wheel in standard and hero, fetch bullets in Engineer
 	{
 		ctrl->func_ptr->fWheel = ctrl->func_ptr->fWheel?0:1; //flip if sw1 is at position 1
@@ -350,10 +337,35 @@ void rcDealler(ctrl_info_t * ctrl, const int16_t * feed, rc_info_t * rc, int16_t
 	{
 		ctrl->func_ptr->magazineLid = ctrl->func_ptr->magazineLid?0:1; //flip if sw1 is at position 1
 	}
+	//ctrl->func_ptr->raising
+	if(rc->kb_ctrl.othKey & Z && feed[1]!=RAISING_HEAD)
+	{
+		ctrl->func_ptr->raising = 2;//10----raising
+	}
+	else if(!(rc->kb_ctrl.othKey & Z) && feed[1]!=RAISING_BOTTOM)
+	{
+		ctrl->func_ptr->raising = 1;//01----declining
+	}
+	else
+	{
+		ctrl->func_ptr->raising = 0;//00----holding position
+	}
 	//ctrl->func_ptr->shoot
 	//ctrl->func_ptr->shootMode
 
-  *angle_inbet = *feed;
+  *angle_inbet = feed[0];
+	#else
+	if(rc->sw2==1) //robot rescuring mode
+	{
+		if(rc->sw1.n==1 && rc->sw1.p!=1)			ctrl->func_ptr->grabRobot = 1;
+		if(rc->sw1.n==2 && rc->sw1.p!=2)			ctrl->func_ptr->releaseRobot = 1;
+	}
+	if(rc->sw2==3) //bullet fetching mode
+	{
+		if(rc->sw1.n==1 && rc->sw1.p!=1)			ctrl->func_ptr->grabBullet = 1;
+		if(rc->sw1.n==2 && rc->sw1.p!=2)			ctrl->func_ptr->releaseBullet = 1;
+	}
+	#endif
 }
 
 /**chassis and gimbal initialization

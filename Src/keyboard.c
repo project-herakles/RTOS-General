@@ -32,8 +32,8 @@ void kb_stateTransfer(const keysignal_t *key, const keysignal_t *high, bool_t *k
             if(high->n) //P & H
             {
                 //10: fast speeding up, the speed is initialized
-                keyState[0] = 1;
-                keyState[1] = 0;
+                keyState[0] = True;
+                keyState[1] = False;
                 *speed += *speed == 0 ? INI_SPEED : 0;
             }
             else //P and ~H
@@ -41,15 +41,15 @@ void kb_stateTransfer(const keysignal_t *key, const keysignal_t *high, bool_t *k
                 if(*speed < LOW_SPEED) //speed is not as high as LOW_SPEED
                 {
                     //11: slowly speeding up
-                    keyState[0] = 1;
-                    keyState[1] = 1;
+                    keyState[0] = True;
+                    keyState[1] = True;
                     *speed += *speed == 0 ? INI_SPEED : 0;
                 }
                 else if(*speed == LOW_SPEED) //speed meets the LOW_SPEED
                 {
                     //00: holding the speed
-                    keyState[0] = 0;
-                    keyState[1] = 0;
+                    keyState[0] = False;
+                    keyState[1] = False;
                 }
                 //else: the speed is higher: stay in the stop mode so that the speed goed down
             }
@@ -62,41 +62,41 @@ void kb_stateTransfer(const keysignal_t *key, const keysignal_t *high, bool_t *k
         if(!key->n) //~P
         {
             //01: stop state
-            keyState[0] = 0;
-            keyState[1] = 1;
+            keyState[0] = False;
+            keyState[1] = True;
         }
         else if(key->n && high->n) //P & H
         {
             //10: fast speeding up
-            keyState[0] = 1;
-            keyState[1] = 0;
+            keyState[0] = True;
+            keyState[1] = False;
         }
         else //P & ~H
         {
             if (*speed >= LOW_SPEED) //the speed is as high as LOW_SPEED
             {
                 //00: holding the speed
-                keyState[0] = keyState[1] = 0;
+                keyState[0] = keyState[1] = False;
             }
             //else: remain in this state
         }
     }
-    else if(keyState[0] == 1 && keyState[1] == 0)
+    else if(keyState[0] == True && keyState[1] == False)
     {
         //Fast speeding up
         if (!key->n || !high->n) //~P or ~H
         {
             //01: stop state to slow down
-            keyState[0] = 0;
-            keyState[1] = 1;
+            keyState[0] = False;
+            keyState[1] = True;
         }
         else //P and H
         {
             if (*speed >= HIGH_SPEED) //the speed is as high as the HIGH_SPEED
             {
                 //00: holding the speed
-                keyState[0] = 0;
-                keyState[1] = 0;
+                keyState[0] = False;
+                keyState[1] = False;
             }
             //else: remain in the same state to speed up
         }
@@ -107,8 +107,8 @@ void kb_stateTransfer(const keysignal_t *key, const keysignal_t *high, bool_t *k
         //holding speed
         if (key->n != key->p || high->n != high->p) //change: bakc to stop mode
         {
-            keyState[0] = 0;
-            keyState[1] = 1;
+            keyState[0] = False;
+            keyState[1] = True;
         }
         //else: remain
     }
@@ -131,10 +131,6 @@ void kb_stateTransfer(const keysignal_t *key, const keysignal_t *high, bool_t *k
 */
 int kb_keyControl(const keysignal_t *key, const keysignal_t *high, bool_t *keyState, int speed)
 {
-    bool_t keySig = (bool_t)key->n;
-    bool_t keyPrev= (bool_t)key->p;
-    bool_t highSig= (bool_t)high->n;
-    bool_t highPrev=(bool_t)high->p;
     kb_stateTransfer(key,high, keyState, &speed);
     speed = ((1 + keyState[0] + keyState[0] + keyState[0]) * speed) >> keyState[1];
     speed = speed > HIGH_SPEED ? HIGH_SPEED : speed;

@@ -4,7 +4,7 @@
 #include "bool.h"
 #include "keyboard.h"
 
-#define STANDARD
+#define ENGINEER
 
 #define HIGH_SPEED        256       //Maximum speed when chassis is in HIGH-SPEED-MODE
 #define LOW_SPEED         128       //Maximum speed when chassis is in LOW-SPEED-MODE
@@ -17,6 +17,8 @@
 #define BACK_CONST        0.7f      //Const for rotation ref when chassis is going to follow gimbal
 #define ANGLE_ERROR       2         //(Half of) Range of the available angle between chassis and gimbal
 #define ANGLE_INBET       5         //Constant for PID of chassis follow gimbal mode (only p in use now)
+#define RAISING_HEAD		50				//positional signal when the raising mechanism reaches the top
+#define	RAISING_BOTTOM		0					//positional signal when the raising mechanism reacher the bottom
 
 #define CW                1
 #define CCW              -1
@@ -38,35 +40,25 @@ typedef unsigned short     int uint16_t;
 #define OpenMagazineLid(a)	(int16_t)a*90
 //a is the func signal magazineLid
 
-#ifdef  STANDARD
-#define FuncInit    {0,0}
-#endif
-#ifdef  HERO
+#ifndef  ENGINEER
+#define FuncInit    {0,0,0,0,0}
+#else
 #define FuncInit    {0,0,0,0}
-#endif
-#ifdef  ENGINEER
-#define FuncInit    {0,0}
 #endif
 
 typedef struct
 {
-    #ifdef   STANDARD
+    #ifndef   ENGINEER
     uint8_t fWheel : 1;
 		uint8_t magazineLid : 1; //1=>90degree; 0=>0degree
     uint8_t shoot  : 2;
     uint8_t shootMode : 1;
-    #endif
-
-    #ifdef  HERO
-    uint8_t fWheel  : 1;
-    uint8_t shootG1 : 2;
-    uint8_t shootG2 : 2;
-    int8_t  holder  : 1;
-    #endif
-
-    #ifdef  ENGINEER
-    int8_t fecth_robot : 2;
-    int8_t get_bullet  : 2;
+		uint8_t raising : 2; //00=>hold, 10=>up, 01=>down
+		#else
+		uint8_t grabRobot : 1;
+		uint8_t grabBullet : 1;
+		uint8_t releaseRobot : 1;
+		uint8_t releaseBullet : 1;
     #endif
 }func_t;
 
@@ -154,11 +146,11 @@ typedef struct
     uint8_t S2: 1;
 }OneBit;
 
-void chassisGimbalInit(ctrl_info_t *);
+void chassisGimbalInit(ctrl_info_t *); 
 
 void rcDealler(ctrl_info_t *, const int16_t *, rc_info_t *, int16_t*); //STEP1: store the given signal into the rc_info_t struct
 void refCalc(rc_info_t *, ctrl_info_t *, int16_t); //STEP2: calculate the ref
-void funcCtrl(rc_info_t *, func_t *); //STEP3: conduct robot's functions, including shooting, rescuring and raising gimbal
+//void funcCtrl(rc_info_t *, func_t *); //STEP3: conduct robot's functions, including shooting, rescuring and raising gimbal
 
 void speed_calc(rc_info_t *, ctrl_info_t *, int16_t); // calculate the f/b/l/f speed
                                              // not const since the keyState is going to be updated

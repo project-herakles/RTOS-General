@@ -6,7 +6,9 @@
  ***************************************(C) COPYRIGHT 2018 DJI***************************************
  */
  
- 
+#ifndef KEYBOARD_DEF_H
+#define KEYBOARD_DEF_H
+
 #define FAST_SPEED								200 // speed ref for keyboard control
 #define NORMAL_SPEED							100 // speed ref for keyboard control
 #define ROTATION_SPEED						150 // speed ref for keyboard control
@@ -33,7 +35,4 @@ enum right_left_direction
 	Right = 1, Left = -1, RL_Stop = 0
 };
 
-enum rotation_direction
-{
-	CW = 1, CCW = -1, RT_Stop = 0
-};
+#endif

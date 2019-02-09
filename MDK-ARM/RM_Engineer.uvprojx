@@ -532,11 +532,6 @@
               <FilePath>..\Inc\bool.h</FilePath>
             </File>
             <File>
-              <FileName>Control.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Inc\Control.h</FilePath>
-            </File>
-            <File>
               <FileName>keyboard.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Inc\keyboard.h</FilePath>

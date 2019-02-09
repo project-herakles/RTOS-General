@@ -6,11 +6,6 @@
 #define LOW_SPEED         128
 #define INI_SPEED         1
 
-#define WW                 0
-#define AA                 1
-#define SS                 2
-#define DD                 3
-
 typedef struct
 {
     int n:1;//now
