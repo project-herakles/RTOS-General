@@ -184,5 +184,3 @@ double sinList[91]={
 	0.999848,
 	1.000000
 };
-#define toCos(a)		a<0?(a<-90?cosList[180+a]:cosList[-1*a]):(a>90?cosList[180-a]:cosList[a]) 
-#define toSin(a)		a<0?(a<-90?-1*sinList[180+a]:-1*sinList[-1*a]):(a>90?sinList[180-a]:sinList[a]) 

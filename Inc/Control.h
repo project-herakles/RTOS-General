@@ -6,19 +6,20 @@
 
 #define ENGINEER
 
-#define HIGH_SPEED        256       //Maximum speed when chassis is in HIGH-SPEED-MODE
-#define LOW_SPEED         128       //Maximum speed when chassis is in LOW-SPEED-MODE
-#define INI_SPEED         1         //Initialization of chassis movement before speeding up when KEY is in use
-#define ROTATION_SPEED    150       //Const for chassis rotation when KEY is in use
-#define SWING_SPEED       90        //Const for dotch
-#define SPEED_CONST		  0.00068f    //Const for movement ref when RC is in use
-#define ANGLE_CONST       0.025f    //Const for rotation ref when MOUSE is in use
-#define ROTATION_CONST    0.00045f  //Const for rotation ref when RC is in use
-#define BACK_CONST        0.7f      //Const for rotation ref when chassis is going to follow gimbal
-#define ANGLE_ERROR       2         //(Half of) Range of the available angle between chassis and gimbal
-#define ANGLE_INBET       5         //Constant for PID of chassis follow gimbal mode (only p in use now)
-#define RAISING_HEAD		50				//positional signal when the raising mechanism reaches the top
-#define	RAISING_BOTTOM		0					//positional signal when the raising mechanism reacher the bottom
+#define HIGH_SPEED        		256       //Maximum speed when chassis is in HIGH-SPEED-MODE
+#define LOW_SPEED         		128       //Maximum speed when chassis is in LOW-SPEED-MODE
+#define INI_SPEED         		1         //Initialization of chassis movement before speeding up when KEY is in use
+#define ROTATION_SPEED    		150       //Const for chassis rotation when KEY is in use
+#define SWING_SPEED       		90        //Const for dotch
+#define SPEED_CONST		  			0.00068f    //Const for movement ref when RC is in use
+#define ANGLE_CONST       		0.025f    //Const for rotation ref when MOUSE is in use
+#define ROTATION_CONST_PITCH  0.000045f  //Const for gimbal pitch rotation ref when RC is in use
+#define ROTATION_CONST_YAW		0.000045f//Const for gimbal yaw rotation ref when RC is in use
+#define BACK_CONST        		0.7f      //Const for rotation ref when chassis is going to follow gimbal
+#define ANGLE_ERROR       		2         //(Half of) Range of the available angle between chassis and gimbal
+#define ANGLE_INBET       		5         //Constant for PID of chassis follow gimbal mode (only p in use now)
+#define RAISING_HEAD					50				//positional signal when the raising mechanism reaches the top
+#define	RAISING_BOTTOM				0					//positional signal when the raising mechanism reacher the bottom
 
 #define CW                1
 #define CCW              -1

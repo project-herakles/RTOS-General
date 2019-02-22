@@ -13,14 +13,52 @@
 extern int8_t ERROR_REPORTER;
 
 
-#define RCMOVE_INACTIVE         rc->ch1==0 && rc->ch2 == 0
-#define RCROTATE_INACTIVE       rc->ch3==0 && rc->ch4 == 0
+#define RCMOVE_INACTIVE         rc->ch3==0 && rc->ch4 == 0
+#define RCROTATE_INACTIVE       rc->ch1==0 && rc->ch2 == 0
 
 #define MODULE(x,y)             (x+y*(x>0?0:1-x/y))%y
 #define ANGLE_LIMIT(a)          MODULE((a+180),360)-180
 
 #define WHETHER_MOVE            ctrl->chassis_ctrl_ptr->forward_back_speed_ref!=0 &&ctrl->chassis_ctrl_ptr->left_right_speed_ref!=0 &&ctrl->chassis_ctrl_ptr->rotation_speed_ref!=0
 
+
+/**degree to COS
+ * @brief: calculate the cos value given the angle in degree in the look-up table
+ * @param: a----given angle, from -180 to 180 in degree
+ * @reval: the cos value
+ */ 
+double toCos(short signed int a)
+{
+	if(a<0)
+	{
+		if(a<-90)	return -1*cosList[180+a];
+		else			return cosList[-1*a];
+	}
+	else
+	{
+		if(a>90)	return -1*cosList[180-a];
+		else			return cosList[a];
+	}
+}
+
+/**degree to SIN
+ * @brief: calculate the sin value given the angle in degree in the look-up table
+ * @param: a----given angle, from -180 to 180 in degree
+ * @reval: the sin value
+ */ 
+double toSin(short signed int a)
+{
+	if(a<0)
+	{
+		if(a<-90)	return -1*sinList[180+a];
+		else			return -1*sinList[-1*a];
+	}
+	else
+	{
+		if(a>90)	return sinList[180-a];
+		else			return sinList[a];
+	}
+}
 
 
 /**gimbal angle calculation basing on rc
@@ -32,8 +70,8 @@ extern int8_t ERROR_REPORTER;
 void gimbal_angle_rc(const rc_info_t * rc, gimbal_ctrl_t * gimbal_ref)
 {
     //from the last-year code
-    gimbal_ref->horizontal_angle_ref = (int16_t)((float)rc->ch4*ROTATION_CONST);
-    gimbal_ref->vertical_angle_ref   = (int16_t)((float)rc->ch3*ROTATION_CONST);
+    gimbal_ref->horizontal_angle_ref = (int16_t)((float)rc->ch2*ROTATION_CONST_PITCH);
+    gimbal_ref->vertical_angle_ref   = (int16_t)((float)rc->ch1*ROTATION_CONST_YAW);
 }
 
 /**chassis speed calculation basing on rc
@@ -44,14 +82,14 @@ void gimbal_angle_rc(const rc_info_t * rc, gimbal_ctrl_t * gimbal_ref)
  */ 
 void chassis_speed_rc(const rc_info_t * rc, chassis_ctrl_t * chassis_ref)
 {
-    int16_t ch1_abs;
-	int16_t ch2_abs;
+    int16_t ch3_abs;
+	int16_t ch4_abs;
 
-	ch1_abs = rc->ch1<0 ? -(rc->ch1):rc->ch1;
-	ch2_abs = rc->ch2<0 ? -(rc->ch2):rc->ch2;
+	ch3_abs = rc->ch3<0 ? -(rc->ch3):rc->ch3;
+	ch4_abs = rc->ch4<0 ? -(rc->ch4):rc->ch4;
 
-    chassis_ref->forward_back_speed_ref = ch2_abs > 10? rc->ch2 * ch2_abs * SPEED_CONST   : 0;
-    chassis_ref->left_right_speed_ref = ch1_abs > 10? rc->ch1 * ch1_abs * SPEED_CONST : 0;
+    chassis_ref->forward_back_speed_ref = ch4_abs > 10? rc->ch4 * ch4_abs * SPEED_CONST   : 0;
+    chassis_ref->left_right_speed_ref = ch3_abs > 10? rc->ch3 * ch3_abs * SPEED_CONST : 0;
 
 }
 
@@ -204,6 +242,7 @@ void state_transfer(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbe
  *         delta_gimbal_vAngle----delta ref for relative vertical angle of gimbal rotation
  * @reval:
  */ 
+
 void angle_cala(const rc_info_t * rc, ctrl_info_t * ctrl, int16_t angle_inbet)
 {
     if(ctrl->state[0]==False && ctrl->state[1]==False)                 //stop mode
